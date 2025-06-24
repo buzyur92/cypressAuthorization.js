@@ -24,14 +24,14 @@ describe('Проверка авторизации', function () {
 
     it('Верный логин и неверный пароль', function () {
         cy.get(main_page.email).type(data.login);
-        cy.get(main_page.password).type('iLoveqastudio2');
+        cy.get(main_page.password).type('testeste');
         cy.get(main_page.login_button).click();
         cy.get(result_page.title).should('be.visible');
         cy.get(result_page.title).contains('Такого логина или пароля нет');
     })
 
     it('Валидация на наличие @', function () {
-        cy.get(main_page.email).type('germandolnikov.ru');
+        cy.get(main_page.email).type('testestest.ru');
         cy.get(main_page.password).type(data.password);
         cy.get(main_page.login_button).click();
         cy.get(result_page.title).should('be.visible');
@@ -46,7 +46,7 @@ describe('Проверка авторизации', function () {
     })
 
     it('Неверный логин и верный пароль', function () {
-        cy.get(main_page.email).type('german@dolnnikov.ru');
+        cy.get(main_page.email).type('testestes.ru');
         cy.get(main_page.password).type(data.password);
         cy.get(main_page.login_button).click();
         cy.get(result_page.title).should('be.visible');
@@ -54,7 +54,7 @@ describe('Проверка авторизации', function () {
     })
 
     it('Проверка на привидения к строчным буквам в логине', function () {
-        cy.get(main_page.email).type('GerMan@Dolnikov.ru');
+        cy.get(main_page.email).type('Testetse@tesT.ru');
         cy.get(main_page.password).type(data.password);
         cy.get(main_page.login_button).click();
         cy.get(result_page.title).should('be.visible');
